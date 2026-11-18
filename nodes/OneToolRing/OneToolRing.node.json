@@ -1,0 +1,32 @@
+{
+	"node": "n8n-nodes-1toolring",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Development", "Data & Storage"],
+	"alias": [
+		"1ToolRing",
+		"ToolRing",
+		"one tool ring",
+		"Google search results",
+		"SERP",
+		"keyword research",
+		"Google Maps places",
+		"product prices",
+		"exchange rate",
+		"stock price",
+		"web scraping",
+		"agent tools"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://docs.1toolring.com/authentication/api-keys/"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://docs.1toolring.com/reference/tools/"
+			}
+		]
+	}
+}

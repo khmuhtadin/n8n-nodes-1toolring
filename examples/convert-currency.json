@@ -1,0 +1,90 @@
+{
+	"name": "1ToolRing: convert a currency",
+	"nodes": [
+		{
+			"parameters": {
+				"content": "## Convert a currency with 1ToolRing\nRuns the `1toolring/fx/convert` tool once and returns the rate, the result and what the call cost.\n\n**Setup:** select your 1ToolRing credential on the node. Change the Body to convert other currencies.",
+				"width": 760,
+				"height": 200
+			},
+			"id": "overview",
+			"name": "Overview",
+			"type": "n8n-nodes-base.stickyNote",
+			"typeVersion": 1,
+			"position": [-80, -220]
+		},
+		{
+			"parameters": {
+				"content": "### Start manually",
+				"width": 260,
+				"height": 220,
+				"color": 7
+			},
+			"id": "a1",
+			"name": "Start area",
+			"type": "n8n-nodes-base.stickyNote",
+			"typeVersion": 1,
+			"position": [-80, 0]
+		},
+		{
+			"parameters": {
+				"content": "### Run the tool (charged per call)",
+				"width": 480,
+				"height": 220,
+				"color": 7
+			},
+			"id": "a2",
+			"name": "Run area",
+			"type": "n8n-nodes-base.stickyNote",
+			"typeVersion": 1,
+			"position": [200, 0]
+		},
+		{
+			"parameters": {},
+			"id": "start",
+			"name": "When clicking Execute workflow",
+			"type": "n8n-nodes-base.manualTrigger",
+			"typeVersion": 1,
+			"position": [0, 60]
+		},
+		{
+			"parameters": {
+				"resource": "tool",
+				"operation": "run",
+				"tool": {
+					"__rl": true,
+					"mode": "id",
+					"value": "1toolring/fx/convert"
+				},
+				"body": "{\n  \"from\": \"USD\",\n  \"to\": \"IDR\",\n  \"amount\": 100\n}"
+			},
+			"id": "run",
+			"name": "Convert USD to IDR",
+			"type": "n8n-nodes-1toolring.oneToolRing",
+			"typeVersion": 1,
+			"position": [380, 60],
+			"credentials": {
+				"oneToolRingApi": {
+					"id": "",
+					"name": "1ToolRing account"
+				}
+			}
+		}
+	],
+	"connections": {
+		"When clicking Execute workflow": {
+			"main": [
+				[
+					{
+						"node": "Convert USD to IDR",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		}
+	},
+	"settings": {
+		"executionOrder": "v1"
+	}
+}
